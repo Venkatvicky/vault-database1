@@ -4,8 +4,9 @@ metadata:
   name: postgres-pv
 spec:
   capacity:
-    storage: 10Gi
+    storage: 10Gi                       # Match PVC request or be larger
   accessModes:
     - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain # Retain data even if PVC is deleted
   hostPath:
-    path: /mnt/postgres-data
+    path: /mnt/postgres-data            # Storage path on the node
