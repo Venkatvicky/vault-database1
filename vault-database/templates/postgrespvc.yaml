@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: postgres-pvc
+  name: postgres-pvc-new
   labels:
     app: postgres
 spec:
@@ -9,8 +9,4 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 10Gi  # Should match or be less than the PV's capacity
-  storageClassName: manual  # Must match the PV's storageClassName
-  selector:
-    matchLabels:
-      app: postgres  # Optional: Ensures the PVC binds to the correct PV
+      storage: 1Gi
