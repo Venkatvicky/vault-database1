@@ -4,9 +4,9 @@ metadata:
   name: vault-pv
 spec:
   capacity:
-    storage: 10Gi
+    storage: 1Gi
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   hostPath:
-    path: "/mnt/vault-data"
+    path: /mnt/vault-data     # Updated path
