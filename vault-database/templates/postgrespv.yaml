@@ -8,6 +8,6 @@ spec:
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
-  storageClassName: manual                 # Set a manual StorageClass
+  storageClassName: expandable
   hostPath:
     path: /mnt/postgres-data
