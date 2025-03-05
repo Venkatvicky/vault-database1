@@ -2,10 +2,15 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: vault-pv
+  labels:
+    app: vault
 spec:
   capacity:
-    storage: 10Gi
+    storage: 1Gi  # Adjust size as needed
   accessModes:
     - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain  # Retain ensures data is not deleted automatically
+  storageClassName: expandable  # Match the storage class used by the PVC
   hostPath:
-    path: /mnt/vault-data
+    path: /mnt/vault-data  # Updated path
+    type: DirectoryOrCreate  # Ensures the directory is created if it doesn't exist
