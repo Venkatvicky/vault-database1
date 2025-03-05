@@ -9,5 +9,8 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 1Gi
-  storageClassName: expandable
+      storage: 10Gi  # Should match or be less than the PV's capacity
+  storageClassName: manual  # Must match the PV's storageClassName
+  selector:
+    matchLabels:
+      app: postgres  # Optional: Ensures the PVC binds to the correct PV
