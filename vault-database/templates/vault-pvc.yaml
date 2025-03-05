@@ -2,9 +2,13 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: vault-pvc
+  labels:
+    app: vault
 spec:
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 10Gi
+      storage: 1Gi  # Should match or be less than the PV's capacity
+  storageClassName: expandable  # Must match the PV's storage class
+  volumeName: vault-pv  # Explicitly bind to the PV (optional)
