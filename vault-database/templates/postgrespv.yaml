@@ -1,17 +1,14 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: postgres-pv
+  name: postgres-pv-new
   labels:
     app: postgres
-    type: local
 spec:
   capacity:
-    storage: 10Gi  # Adjust storage size as needed
+    storage: 1Gi
   accessModes:
-    - ReadWriteOnce  # PostgreSQL typically uses ReadWriteOnce
-  persistentVolumeReclaimPolicy: Retain  # Retain ensures data is not deleted when PVC is deleted
-  storageClassName: manual  # Use a specific storage class or leave it as "manual"
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
   hostPath:
-    path: /mnt/postgres-data  # Ensure this directory exists on the node
-    type: DirectoryOrCreate  # Creates the directory if it doesn't exist
+    path: /mnt/postgres-data
