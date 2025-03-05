@@ -4,9 +4,10 @@ metadata:
   name: vault-pv
 spec:
   capacity:
-    storage: 10Gi                       # Match PVC request or be larger
+    storage: 10Gi
   accessModes:
     - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Retain # Keep data even after PVC deletion
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: manual                 # Use the same manual StorageClass
   hostPath:
-    path: /mnt/vault-data               # Storage path on the node
+    path: /mnt/vault-data
